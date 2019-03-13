@@ -2,32 +2,32 @@ package test
 
 import javax.inject.Inject
 
-class Repository @Inject()(
-
+class Service @Inject()(
+  repository: Repository
 )(){
 
   def get() =  {
-    1
+    repository.get()
   }
 
   def find() = {
-    Some(1)
+    repository.find()
   }
 
   def search() = {
-    List(Some(1))
+    repository.search()
   }
 
   def list() = {
-    List(1)
+    repository.list()
   }
 
   def create() = {
-    1
+    repository.create()
   }
 
   def update() = {
-    1
+    repository.update()
   }
 
 }
