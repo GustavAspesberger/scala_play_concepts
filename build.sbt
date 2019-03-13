@@ -15,7 +15,8 @@ libraryDependencies ++= Seq(
   ehcache,
   ws,
   specs2 % Test,
-  guice
+  guice,
+  "org.postgresql" % "postgresql" % "42.2.1"
 )
 
 unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )
