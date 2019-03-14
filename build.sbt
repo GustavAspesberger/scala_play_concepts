@@ -16,7 +16,8 @@ libraryDependencies ++= Seq(
   ws,
   specs2 % Test,
   guice,
-  "org.postgresql" % "postgresql" % "42.2.1"
+  "org.postgresql" % "postgresql" % "42.2.1",
+  "org.playframework.anorm" %% "anorm" % "2.6.2"
 )
 
 unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )
