@@ -5,8 +5,8 @@ GET     /                    controllers.HomeController.index
 GET     /count               controllers.CountController.count
 GET     /message             controllers.AsyncController.message
 
-GET     /test/:name          user.Controller.get(name: String)
 GET     /test/list           user.Controller.list()
+GET     /test/:name          user.Controller.get(name: String)
 POST    /test                user.Controller.create()
 PUT     /test                user.Controller.update()
 
