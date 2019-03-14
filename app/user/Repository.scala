@@ -20,7 +20,7 @@ class Repository @Inject()(
     val x = db.withConnection( implicit c =>
       SQL"""
          SELECT id, name, surname, email
-         FROM users
+         FROM project.users
          where name = $name
         """.as(parser.singleOpt)
     )
