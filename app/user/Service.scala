@@ -1,13 +1,19 @@
-package test
+package user
 
 import javax.inject.Inject
+import play.api.Logger
 
 class Service @Inject()(
   repository: Repository
 )(){
 
-  def get() =  {
-    repository.get()
+  private val log = Logger("application")
+
+  def get(name: String) =  {
+    log.info("Servicelayer => (get) => Repolayer")
+    val x = repository.get(name)
+    log.info(s"Service => ($x) Controller")
+    x
   }
 
   def find() = {

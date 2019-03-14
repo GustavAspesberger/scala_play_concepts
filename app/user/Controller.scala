@@ -1,7 +1,7 @@
-package test
+package user
 
 import javax.inject.Inject
-import play.Logger
+import play.api.Logger
 import play.api.mvc._
 import play.api.libs.json.Json
 
@@ -11,13 +11,19 @@ class Controller @Inject(
   cc: ControllerComponents
 )() extends AbstractController(cc) {
 
-  def get() = Action {
+  private val log = Logger("application")
 
-    Logger.info("get request in Controller")
-
-    service.get() match {
-      case z => Ok(Json.toJson(z))
-      case _ => ???
+  def get(name: String) = Action {
+    log.info("Controllerlayer => (get) => Servicelayer")
+    service.get(name) match {
+      case Some(z) => {
+        log.info(s"Service => $z => Controller")
+        Ok(Json.toJson(z))
+      }
+      case _ => {
+        log.info(s"Error 404 $name not found")
+        NotFound
+      }
     }
   }
 
@@ -26,10 +32,6 @@ class Controller @Inject(
       case Some(z) => Ok(Json.toJson(z))
       case _ => ???
     }
-  }
-
-  def search()  = Action  {
-    Ok(Json.toJson(service.search()))
   }
 
   def list()  = Action  {
