@@ -25,7 +25,10 @@ class Service @Inject()(
   }
 
   def list() = {
-    repository.list()
+    log.info("Servicelayer => (list) => Repolayer")
+    val x = repository.list()
+    log.info(s"Service => ($x) Controller")
+    x
   }
 
   def create() = {

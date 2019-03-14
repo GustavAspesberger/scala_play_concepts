@@ -37,7 +37,15 @@ class Repository @Inject()(
   }
 
   def list() = {
-    List(1)
+    log.info("Repolayer")
+    val x = db.withConnection( implicit c =>
+      SQL"""
+         SELECT id, name, surname, email
+         FROM project.users
+        """.as(parser.*)
+    )
+    log.info(s"Repositorylayer => $x => Servicelayer")
+    x
   }
 
   def create() = {

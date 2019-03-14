@@ -35,6 +35,7 @@ class Controller @Inject(
   }
 
   def list()  = Action  {
+    log.info("Controllerlayer => (list) => Servicelayer")
     Ok(Json.toJson(service.list()))
   }
 
