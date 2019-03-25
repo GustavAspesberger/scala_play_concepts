@@ -3,7 +3,7 @@ package user
 import play.api.libs.json.{Format, Json}
 
 case class User (
-  id: Long,
+  id: Option[Long],
   name: String,
   surname: String,
   email: String
