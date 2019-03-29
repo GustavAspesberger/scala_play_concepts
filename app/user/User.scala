@@ -1,6 +1,6 @@
 package user
 
-import play.api.libs.json.{Format, Json}
+import play.api.libs.json.Json
 
 case class User (
   id: Option[Long],
